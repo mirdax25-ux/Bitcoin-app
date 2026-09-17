@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bitcoin Recovery Vault</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <div class="badge">NON-CUSTODIAL • WATCH-ONLY • V0.3</div>
+    <h1>Bitcoin Recovery Vault</h1>
+    <p class="lead">Public blockchain analysis with hard recovery guardrails.</p>
+
+    <section class="grid">
+      <article><span>Backend</span><strong id="backend">Checking...</strong></article>
+      <article><span>Last activity</span><strong id="activity">—</strong></article>
+      <article><span>Research score</span><strong id="score">—</strong></article>
+    </section>
+
+    <section class="panel">
+      <h2>Public Bitcoin address lookup</h2>
+      <div class="row">
+        <input id="address" value="1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa" />
+        <button id="lookup">Analyze public data</button>
+      </div>
+      <pre id="result">Ready.</pre>
+    </section>
+    <section class="panel">
+      <h2>Ownership challenge</h2>
+      <p class="muted">Use only for an address you control. The app never asks for a seed phrase or private key.</p>
+      <button id="challenge">Create message to sign</button>
+      <pre id="challengeResult">No challenge created.</pre>
+    </section>
+
+    <section class="panel warning">
+      <h2>Hard guardrails</h2>
+      <ul>
+        <li>No seed phrases or private keys</li>
+        <li>No brute-force or key guessing</li>
+        <li>No automatic fund transfers</li>
+        <li>Dormancy never proves abandonment or ownership</li>
+      </ul>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
+
+<!-- signature verification UI injected by v0.3 ownership module -->
+<section class="panel" id="verifyPanel">
+  <h2>Verify signed challenge</h2>
+  <p class="muted">Paste only the wallet signature. Never paste a private key or seed phrase.</p>
+  <textarea id="signature" rows="4" placeholder="Wallet signature"></textarea>
+  <button id="verify">Verify ownership signature</button>
+  <pre id="verifyResult">Not verified.</pre>
+</section>
